@@ -23,7 +23,7 @@ let fireBaseURL = URL(string: "https://www.google.com")!
 
 class TaskController {
     init() {
-        fetchTasksFromServer()
+//        fetchTasksFromServer()
     }
     //MARK: - Fetch
     func fetchTasksFromServer(completion: @escaping CompletionHandler = { _ in }) {

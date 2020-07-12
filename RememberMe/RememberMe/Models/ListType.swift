@@ -19,6 +19,6 @@ let workList: ListType = ListType(title: "Work", color: UIColor(named: "WorkColo
 let shoppingList: ListType = ListType(title: "Shopping", color: UIColor(named: "ShoppingColor"))
 let personalList: ListType = ListType(title: "Personal", color: UIColor(named: "PersonalColor"))
 let inboxList: ListType = ListType(title: "Inbox", color: UIColor(named: "Inboxcolor"))
-var lists: [ListType] = [familyList, workList, shoppingList, personalList, inboxList]
+var lists: [ListType] = [inboxList, familyList, personalList, shoppingList, workList]
 
 

@@ -45,6 +45,7 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPlusButton()
+        self.taskTypeTableView.separatorColor = UIColor.clear
         self.todayTableView.delegate = todayTableViewRef
         self.todayTableView.dataSource = todayTableViewRef
         self.taskTypeTableView.delegate = taskTypeTableViewRef
@@ -80,12 +81,12 @@ class HomePageViewController: UIViewController {
 
 class TodayTaskTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    let homePageRef = HomePageViewController()
+    var homePageRef: HomePageViewController?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        homePageRef.fetchedResultsController.sections![section].numberOfObjects
-        
+        homePageRef?.fetchedResultsController.sections![section].numberOfObjects ?? 0
+         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,20 +95,38 @@ class TodayTaskTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        65
+    }
 }
 
 class TaskTypeTableView: NSObject, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        lists.count
+    let cellSpacingHeight: CGFloat = 5
+    var cellColors = myColors
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        cellSpacingHeight
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
     
+    // # of rows
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        lists.count
+        
+    }
+    // Cell For Row At
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! TaskTypeTableViewCell
         cell.textLabel?.text = lists[indexPath.row].title
+        cell.contentView.backgroundColor = UIColor(named: cellColors[indexPath.row % cellColors.count])
+        cell.layer.cornerRadius = 10
         return cell
     }
 }

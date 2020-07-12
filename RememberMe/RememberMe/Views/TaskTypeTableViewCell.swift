@@ -22,16 +22,23 @@ import UIKit
 
 class TaskTypeTableViewCell: UITableViewCell {
     static let identifier = "TaskCell"
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        self.bounds = CGRect(x: self.bounds.origin.x, y: self.bounds.origin.y, width: self.bounds.width - 20, height: self.bounds.size.height)
+        let margins = UIEdgeInsets(top: 0, left: 2.5, bottom: 5, right: 2.5)
+        contentView.frame = contentView.frame.inset(by: margins)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

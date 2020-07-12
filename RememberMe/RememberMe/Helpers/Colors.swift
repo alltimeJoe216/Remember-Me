@@ -8,11 +8,11 @@
 import UIKit
 import Foundation
 
-var myColors: [UIColor] = [
-    UIColor(named: "WorkColor")!,
-    UIColor(named: "ShoppingColor")!,
-    UIColor(named: "PersonalColor")!,
-    UIColor(named: "FamilyColor")!,
-    UIColor(named: "InboxColor")!,
-    UIColor(named: "MyDarkPurple")!,
+var myColors: [String] = [
+    String(stringLiteral:  "InboxColor"),
+    String(stringLiteral: "FamilyColor"),
+    String(stringLiteral: "PersonalColor"),
+    String(stringLiteral: "ShoppingColor"),
+    String(stringLiteral: "WorkColor")
+    
 ]

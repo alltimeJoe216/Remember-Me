@@ -11,7 +11,7 @@ enum TaskType: String, CaseIterable {
     case work = "Work"
     case shopping = "Shopping"
     case personal = "Personal"
-    case inbox = "inbox"
+    case inbox = "Inbox"
 }
 
 import Foundation
@@ -50,5 +50,4 @@ extension Task {
         
         self.init(identifier: identifier, title: taskRepresentation.title, timeStamp: taskRepresentation.timeStamp, taskType: taskType, complete: taskRepresentation.complete)
     }
-    
 }
