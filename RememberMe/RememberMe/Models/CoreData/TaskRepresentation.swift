@@ -13,4 +13,5 @@ struct TaskRepresentation: Codable {
     let identifier: String
     let taskType: String
     let timeStamp: Date
+    let complete: Bool
 }

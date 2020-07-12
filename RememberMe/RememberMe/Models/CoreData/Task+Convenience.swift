@@ -15,6 +15,7 @@ enum TaskType: String, CaseIterable {
 }
 
 import Foundation
+import CoreData
 
 extension Task {
     
@@ -22,14 +23,32 @@ extension Task {
         
         guard let id = identifier,
             let title = title,
-            let timestamp = date,
+            let timeStamp = date,
             let taskType = taskType else {
                 return nil
         }
         
-        return TaskRepresentation(title: title, identifier: id.uuidString, taskType: taskType, timeStamp: timestamp)
+        return TaskRepresentation(title: title, identifier: id.uuidString, taskType: taskType, timeStamp: timeStamp, complete: complete)
     }
     
-    @discardableResult convenience init(identifier: UUID = UUID(), title: String, )
+    @discardableResult convenience init(identifier: UUID = UUID(),
+                                        title: String,
+                                        timeStamp: Date = Date(),
+                                        taskType: TaskType = .personal,
+                                        complete: Bool = false,
+                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.init(context: context)
+        self.identifier = identifier
+        self.title = title
+        self.taskType = taskType.rawValue
+        self.complete = complete
+    }
+    
+    @discardableResult convenience init?(taskRepresentation: TaskRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        guard let identifier = UUID(uuidString: taskRepresentation.identifier),
+            let taskType = TaskType(rawValue: taskRepresentation.taskType) else { return nil }
+        
+        self.init(identifier: identifier, title: taskRepresentation.title, timeStamp: taskRepresentation.timeStamp, taskType: taskType, complete: taskRepresentation.complete)
+    }
     
 }
