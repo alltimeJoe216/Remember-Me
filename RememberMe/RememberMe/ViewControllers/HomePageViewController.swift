@@ -30,6 +30,7 @@ class HomePageViewController: UIViewController {
         
     }()
     
+    // For List Type Table View cells
     var myColorsArray = myColors
 
     //MARK: - IBOutlet
@@ -37,7 +38,10 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var todayTableView: UITableView!
     @IBOutlet weak var taskTypeTableView: UITableView!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var behindTableViewViewLol: UIView!
     
+    //MARK: - TableViewClassRefs
+    /// Classes are created at bottom of .swift file
     let todayTableViewRef = TodayTaskTableView()
     let taskTypeTableViewRef = TaskTypeTableView()
     
@@ -45,6 +49,8 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPlusButton()
+        behindTableViewViewLol.layer.cornerRadius = 20
+        
         self.taskTypeTableView.separatorColor = UIColor.clear
         self.todayTableView.delegate = todayTableViewRef
         self.todayTableView.dataSource = todayTableViewRef
@@ -65,7 +71,8 @@ class HomePageViewController: UIViewController {
     private func setupPlusButton() {
         
         // shadow
-        plusButton.layer.shadowColor = UIColor(named: "MyAqua" )?.cgColor
+        plusButton.layer.shadowColor = UIColor.white.cgColor
+        plusButton.backgroundColor = UIColor.white
         plusButton.layer.shadowOffset = CGSize(width: 1, height: 1)
         plusButton.layer.shadowOpacity = 1
         plusButton.layer.shadowRadius = 3
@@ -102,8 +109,16 @@ class TodayTaskTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
 }
 
 class TaskTypeTableView: NSObject, UITableViewDelegate, UITableViewDataSource {
-    let cellSpacingHeight: CGFloat = 5
+    let cellSpacingHeight: CGFloat = 0
     var cellColors = myColors
+    var cellColors2 = myColors2
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    
+        cell.contentView.layer.masksToBounds = true
+        let radius = cell.contentView.layer.cornerRadius
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
+    }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         cellSpacingHeight
@@ -126,7 +141,8 @@ class TaskTypeTableView: NSObject, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! TaskTypeTableViewCell
         cell.textLabel?.text = lists[indexPath.row].title
         cell.contentView.backgroundColor = UIColor(named: cellColors[indexPath.row % cellColors.count])
-        cell.layer.cornerRadius = 10
+        cell.layer.cornerRadius = 25
+
         return cell
     }
 }

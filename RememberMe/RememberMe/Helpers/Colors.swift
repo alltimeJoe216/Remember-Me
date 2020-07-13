@@ -14,5 +14,15 @@ var myColors: [String] = [
     String(stringLiteral: "PersonalColor"),
     String(stringLiteral: "ShoppingColor"),
     String(stringLiteral: "WorkColor")
-    
 ]
+
+
+var myColors2: [String] = [
+    String(stringLiteral: "WorkColor"),
+    String(stringLiteral: "ShoppingColor"),
+    String(stringLiteral: "PersonalColor"),
+    String(stringLiteral: "FamilyColor"),
+    String(stringLiteral:  "InboxColor")  
+]
+
+

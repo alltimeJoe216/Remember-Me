@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EsD-NZ-FrC">
-                                <rect key="frame" x="20" y="93" width="374" height="400"/>
+                                <rect key="frame" x="20" y="93" width="374" height="395"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <prototypes>
@@ -36,11 +36,11 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mt-GU-J7H">
                                                     <rect key="frame" x="0.0" y="10" width="44" height="44"/>
+                                                    <color key="backgroundColor" name="FamilyColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="pPg-Wt-rw5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <color key="tintColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="circle" catalog="system"/>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9P-zy-8Wg">
@@ -73,9 +73,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O32-9I-u6u">
+                                <rect key="frame" x="17" y="518" width="380" height="309"/>
+                                <color key="backgroundColor" name="MyDarkPurple"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="i22-bn-ocw">
                                 <rect key="frame" x="17" y="518" width="380" height="330"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="380" id="Y6w-dW-BB9"/>
                                     <constraint firstAttribute="height" constant="330" id="lVA-Sz-VEh"/>
@@ -114,42 +118,45 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDs-gV-H2I">
-                                <rect key="frame" x="42" y="501" width="28" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <rect key="frame" x="20" y="496" width="374" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pms-rD-IfA">
-                                <rect key="frame" x="287" y="761" width="85" height="85"/>
-                                <color key="backgroundColor" name="MyDarkRed"/>
+                                <rect key="frame" x="317" y="763" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="EDA-Mi-4In"/>
-                                    <constraint firstAttribute="width" constant="85" id="p4P-c9-10I"/>
+                                    <constraint firstAttribute="height" constant="55" id="EDA-Mi-4In"/>
+                                    <constraint firstAttribute="width" constant="55" id="p4P-c9-10I"/>
                                 </constraints>
-                                <color key="tintColor" name="InboxColor"/>
-                                <state key="normal" title="Hold Me"/>
+                                <state key="normal" image="plus" catalog="system"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="pms-rD-IfA" secondAttribute="bottom" constant="50" id="0Ly-n9-vgq"/>
-                            <constraint firstItem="KDs-gV-H2I" firstAttribute="leading" secondItem="Yt6-ea-1H0" secondAttribute="leading" constant="42" id="1aE-d3-GSB"/>
+                            <constraint firstAttribute="bottom" secondItem="pms-rD-IfA" secondAttribute="bottom" constant="78" id="0Ly-n9-vgq"/>
+                            <constraint firstItem="O32-9I-u6u" firstAttribute="leading" secondItem="Yt6-ea-1H0" secondAttribute="leading" constant="17" id="5Qm-gB-ZKE"/>
                             <constraint firstItem="Yt6-ea-1H0" firstAttribute="bottom" secondItem="i22-bn-ocw" secondAttribute="bottom" constant="14" id="AmY-WN-MLT"/>
                             <constraint firstItem="i22-bn-ocw" firstAttribute="centerX" secondItem="lhR-ZP-Uwy" secondAttribute="centerX" id="DzA-mt-MYr"/>
-                            <constraint firstItem="i22-bn-ocw" firstAttribute="top" secondItem="KDs-gV-H2I" secondAttribute="bottom" id="HUn-zN-d0a"/>
                             <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="EsD-NZ-FrC" secondAttribute="trailing" constant="20" id="QA0-87-gjB"/>
+                            <constraint firstItem="i22-bn-ocw" firstAttribute="top" secondItem="KDs-gV-H2I" secondAttribute="bottom" constant="8" id="SZf-Gz-1dT"/>
+                            <constraint firstItem="Yt6-ea-1H0" firstAttribute="bottom" secondItem="O32-9I-u6u" secondAttribute="bottom" constant="35" id="Sy4-cx-RLj"/>
+                            <constraint firstItem="O32-9I-u6u" firstAttribute="top" secondItem="KDs-gV-H2I" secondAttribute="bottom" constant="8" id="TkX-y5-VAQ"/>
                             <constraint firstItem="EsD-NZ-FrC" firstAttribute="top" secondItem="Yt6-ea-1H0" secondAttribute="top" constant="5" id="VXH-D6-LQP"/>
-                            <constraint firstItem="i22-bn-ocw" firstAttribute="top" secondItem="EsD-NZ-FrC" secondAttribute="bottom" constant="25" id="bG0-6w-KK3"/>
+                            <constraint firstItem="i22-bn-ocw" firstAttribute="top" secondItem="EsD-NZ-FrC" secondAttribute="bottom" constant="30" id="bG0-6w-KK3"/>
                             <constraint firstItem="EsD-NZ-FrC" firstAttribute="centerX" secondItem="lhR-ZP-Uwy" secondAttribute="centerX" id="h38-UW-rJh"/>
                             <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="pms-rD-IfA" secondAttribute="trailing" constant="42" id="ho0-lm-EDA"/>
+                            <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="O32-9I-u6u" secondAttribute="trailing" constant="17" id="kMv-Qr-3i7"/>
+                            <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="KDs-gV-H2I" secondAttribute="trailing" constant="20" id="mUz-hv-o9Z"/>
+                            <constraint firstItem="KDs-gV-H2I" firstAttribute="leading" secondItem="Yt6-ea-1H0" secondAttribute="leading" constant="20" id="oWt-zM-itq"/>
                             <constraint firstItem="EsD-NZ-FrC" firstAttribute="leading" secondItem="Yt6-ea-1H0" secondAttribute="leading" constant="20" id="r58-ZR-7oG"/>
-                            <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="KDs-gV-H2I" secondAttribute="trailing" constant="344" id="uDa-Ze-7W5"/>
-                            <constraint firstItem="KDs-gV-H2I" firstAttribute="top" secondItem="EsD-NZ-FrC" secondAttribute="bottom" constant="8" id="ugE-va-Ro2"/>
+                            <constraint firstItem="KDs-gV-H2I" firstAttribute="top" secondItem="EsD-NZ-FrC" secondAttribute="bottom" constant="8" id="rQd-eX-lbI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yt6-ea-1H0"/>
                     </view>
                     <navigationItem key="navigationItem" title="Today" id="gLx-Iz-u9o"/>
                     <connections>
+                        <outlet property="behindTableViewViewLol" destination="O32-9I-u6u" id="RC6-P0-XFP"/>
                         <outlet property="plusButton" destination="pms-rD-IfA" id="bnJ-BS-EPz"/>
                         <outlet property="taskTypeTableView" destination="i22-bn-ocw" id="cx4-7h-1qL"/>
                         <outlet property="todayTableView" destination="EsD-NZ-FrC" id="bM4-yf-e9g"/>
@@ -307,42 +314,33 @@
             </objects>
             <point key="canvasLocation" x="2274" y="-1189"/>
         </scene>
-        <!--AddTaskViewController-->
-        <scene sceneID="1cC-U6-Ujx">
+        <!--View Controller-->
+        <scene sceneID="C7e-aX-57a">
             <objects>
-                <viewController storyboardIdentifier="AddTaskViewController" title="AddTaskViewController" id="vdD-gr-JQ8" customClass="AddTaskViewController" customModule="RememberMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iwR-Ef-7Zv">
+                <viewController storyboardIdentifier="AddTaskViewController" id="DvF-Hv-ofP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fNk-xQ-qjn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lx-pY-Cxj">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="Qly-Ti-4pq">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1PW-OT-ZQI"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="vlc-fL-njX"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="AgE-Ql-tgY"/>
+                        <viewLayoutGuide key="safeArea" id="NxU-4d-72r"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2ed-Sj-4wS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYX-wb-26Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3381" y="-991"/>
+            <point key="canvasLocation" x="3549" y="-1410"/>
         </scene>
     </scenes>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="FamilyColor">
+            <color red="0.95599997043609619" green="0.80400002002716064" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="InboxColor">
             <color red="0.72200000286102295" green="0.7369999885559082" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="MyDarkRed">
-            <color red="0.36828917259999999" green="0.397023499" blue="0.58041411639999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="MyDarkPurple">
+            <color red="0.36800000071525574" green="0.3970000147819519" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

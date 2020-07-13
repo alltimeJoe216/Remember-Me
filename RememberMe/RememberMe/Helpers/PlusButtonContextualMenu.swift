@@ -9,32 +9,10 @@
 import Foundation
 import UIKit
 
-// Contexztual menu
+// Contextual menu
 extension HomePageViewController: UIContextMenuInteractionDelegate {
     
-    private func segueToAddTask() -> UIAction {
-        
-        return UIAction(
-            title: "New Task",
-            identifier: nil) { _ in
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let main = storyboard.instantiateViewController(withIdentifier: "AddTaskViewController")
-                self.present(main, animated: true, completion: nil)
-        }
-    }
     
-    private func segueToAddList() -> UIAction {
-        
-        return UIAction(title: "New List",
-                        image: .strokedCheckmark,
-                        identifier: nil) { _ in
-                            
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let main = storyboard.instantiateViewController(withIdentifier: "AddTaskViewController")
-                            self.present(main, animated: true, completion: nil)
-        }
-    }
     func contextMenuInteraction(
         _ interaction: UIContextMenuInteraction,
         configurationForMenuAtLocation location: CGPoint)
@@ -46,7 +24,37 @@ extension HomePageViewController: UIContextMenuInteractionDelegate {
                     let addTaskSegue = self.segueToAddTask()
                     let newListSegue = self.segueToAddList()
                     let children = [addTaskSegue, newListSegue]
-                    return UIMenu(title: "", children: children)
+                    return UIMenu(title: "What Would You Like To Add Today?", children: children)
             })
     }
+    
+    //MARK: - Segues happen in contextual menu
+    
+    private func segueToAddTask() -> UIAction {
+        
+        return UIAction(
+            title: "New Task",
+            image: UIImage(systemName: "square.and.pencil"),
+            identifier: nil) { _ in
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let main = storyboard.instantiateViewController(withIdentifier: "AddTaskViewController")
+
+
+                self.present(main, animated: true, completion: nil)
+        }
+    }
+    
+    private func segueToAddList() -> UIAction {
+        
+        return UIAction(title: "New List",
+                        image: UIImage(systemName: "square.and.pencil"),
+                        identifier: nil) { _ in
+                            
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let main = storyboard.instantiateViewController(withIdentifier: "AddTaskViewController")
+                            self.present(main, animated: true, completion: nil)
+        }
+    }
+    
 }
