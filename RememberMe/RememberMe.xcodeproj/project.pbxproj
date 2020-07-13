@@ -11,7 +11,6 @@
 		8E00494D24BA326400525A3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00494C24BA326400525A3E /* AppDelegate.swift */; };
 		8E00494F24BA326400525A3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00494E24BA326400525A3E /* SceneDelegate.swift */; };
 		8E00495424BA326400525A3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E00495224BA326400525A3E /* Main.storyboard */; };
-		8E00495724BA326400525A3E /* RememberMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E00495524BA326400525A3E /* RememberMe.xcdatamodeld */; };
 		8E00495924BA326400525A3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E00495824BA326400525A3E /* Assets.xcassets */; };
 		8E00495C24BA326400525A3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E00495A24BA326400525A3E /* LaunchScreen.storyboard */; };
 		8E00496724BA326400525A3E /* RememberMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00496624BA326400525A3E /* RememberMeTests.swift */; };
@@ -19,9 +18,7 @@
 		8E00498524BA4CBD00525A3E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E00498124BA4C9900525A3E /* Task.swift */; };
 		8E218B4624BB620200D7B072 /* PlusButtonContextualMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E218B4524BB620200D7B072 /* PlusButtonContextualMenu.swift */; };
 		8E9E47B624BC0EAB00A21763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E9E47B524BC0EAB00A21763 /* GoogleService-Info.plist */; };
-		8EC3D6AF24BB774C0054996A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC3D6AE24BB774C0054996A /* CoreDataStack.swift */; };
-		8EC3D6B124BB78730054996A /* Task+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC3D6B024BB78730054996A /* Task+Convenience.swift */; };
-		8EC3D6B324BB78E60054996A /* TaskRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC3D6B224BB78E60054996A /* TaskRepresentation.swift */; };
+		8E9E47CE24BC223300A21763 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E47CD24BC223300A21763 /* User.swift */; };
 		8EC3D6B624BB79F90054996A /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC3D6B524BB79F90054996A /* TaskController.swift */; };
 		8ED0249324BA682D00266EB2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0249124BA682D00266EB2 /* HomePageViewController.swift */; };
 		8ED0249624BA68E900266EB2 /* TodaysTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0249524BA68E900266EB2 /* TodaysTaskTableViewCell.swift */; };
@@ -64,7 +61,6 @@
 		8E00494C24BA326400525A3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E00494E24BA326400525A3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8E00495324BA326400525A3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8E00495624BA326400525A3E /* RememberMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RememberMe.xcdatamodel; sourceTree = "<group>"; };
 		8E00495824BA326400525A3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E00495B24BA326400525A3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E00495D24BA326400525A3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,9 +73,14 @@
 		8E00498124BA4C9900525A3E /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		8E218B4524BB620200D7B072 /* PlusButtonContextualMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonContextualMenu.swift; sourceTree = "<group>"; };
 		8E9E47B524BC0EAB00A21763 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8EC3D6AE24BB774C0054996A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		8EC3D6B024BB78730054996A /* Task+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Convenience.swift"; sourceTree = "<group>"; };
-		8EC3D6B224BB78E60054996A /* TaskRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepresentation.swift; sourceTree = "<group>"; };
+		8E9E47B724BC1F6F00A21763 /* FBLPromises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9E47B824BC1F6F00A21763 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9E47B924BC1F6F00A21763 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9E47BA24BC1F6F00A21763 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9E47BB24BC1F6F00A21763 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9E47BC24BC1F6F00A21763 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9E47BD24BC1F6F00A21763 /* FirebaseStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9E47CD24BC223300A21763 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8EC3D6B524BB79F90054996A /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		8ED0249124BA682D00266EB2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		8ED0249524BA68E900266EB2 /* TodaysTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -203,20 +204,9 @@
 			children = (
 				8E00498124BA4C9900525A3E /* Task.swift */,
 				8ED024A624BAA2A000266EB2 /* ListType.swift */,
-				8ED0248D24BA679D00266EB2 /* CoreData */,
+				8E9E47CD24BC223300A21763 /* User.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		8ED0248D24BA679D00266EB2 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				8E00495524BA326400525A3E /* RememberMe.xcdatamodeld */,
-				8EC3D6AE24BB774C0054996A /* CoreDataStack.swift */,
-				8EC3D6B024BB78730054996A /* Task+Convenience.swift */,
-				8EC3D6B224BB78E60054996A /* TaskRepresentation.swift */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		8ED0248E24BA67A400266EB2 /* Views */ = {
@@ -252,6 +242,13 @@
 		D7D1840B5EC8936C2FDB4784 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E9E47B724BC1F6F00A21763 /* FBLPromises.framework */,
+				8E9E47B824BC1F6F00A21763 /* FirebaseAuth.framework */,
+				8E9E47B924BC1F6F00A21763 /* FirebaseCore.framework */,
+				8E9E47BA24BC1F6F00A21763 /* FirebaseCoreDiagnostics.framework */,
+				8E9E47BB24BC1F6F00A21763 /* FirebaseDatabase.framework */,
+				8E9E47BC24BC1F6F00A21763 /* FirebaseInstallations.framework */,
+				8E9E47BD24BC1F6F00A21763 /* FirebaseStorage.framework */,
 				F27D28E9BB6BFA5318A03106 /* Pods_RememberMe.framework */,
 				1E1BA06C11E723EDD786CED8 /* Pods_RememberMe_RememberMeUITests.framework */,
 				02A223B4C441741566258D78 /* Pods_RememberMeTests.framework */,
@@ -512,21 +509,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EC3D6B324BB78E60054996A /* TaskRepresentation.swift in Sources */,
-				8EC3D6AF24BB774C0054996A /* CoreDataStack.swift in Sources */,
 				8ED0249824BA788600266EB2 /* ListDetailViewController.swift in Sources */,
 				8E218B4624BB620200D7B072 /* PlusButtonContextualMenu.swift in Sources */,
 				8EC3D6B624BB79F90054996A /* TaskController.swift in Sources */,
 				8ED024A524BA9BB600266EB2 /* TaskTypeTableViewCell.swift in Sources */,
 				8ED024A124BA957E00266EB2 /* Colors.swift in Sources */,
 				8ED0249A24BA789400266EB2 /* AddTaskViewController.swift in Sources */,
-				8E00495724BA326400525A3E /* RememberMe.xcdatamodeld in Sources */,
 				8ED0249C24BA814B00266EB2 /* NewListViewController.swift in Sources */,
 				8E00494D24BA326400525A3E /* AppDelegate.swift in Sources */,
+				8E9E47CE24BC223300A21763 /* User.swift in Sources */,
 				8ED0249624BA68E900266EB2 /* TodaysTaskTableViewCell.swift in Sources */,
 				8E00494F24BA326400525A3E /* SceneDelegate.swift in Sources */,
 				8ED0249E24BA864C00266EB2 /* EditTaskViewController.swift in Sources */,
-				8EC3D6B124BB78730054996A /* Task+Convenience.swift in Sources */,
 				8ED0249324BA682D00266EB2 /* HomePageViewController.swift in Sources */,
 				8E00498524BA4CBD00525A3E /* Task.swift in Sources */,
 				8ED024A724BAA2A000266EB2 /* ListType.swift in Sources */,
@@ -864,19 +858,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8E00495524BA326400525A3E /* RememberMe.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8E00495624BA326400525A3E /* RememberMe.xcdatamodel */,
-			);
-			currentVersion = 8E00495624BA326400525A3E /* RememberMe.xcdatamodel */;
-			path = RememberMe.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8E00494124BA326400525A3E /* Project object */;
 }

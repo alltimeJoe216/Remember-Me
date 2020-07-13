@@ -11,8 +11,11 @@ import Firebase
 
 class AddTaskViewController: UIViewController {
     
+    var user: User!
+    let ref = Database.database().reference(withPath: "tasks")
+    let usersRef = Database.database().reference(withPath: "online")
+    
     @IBOutlet weak var textField: UITextField!
-    let ref = Database.database().reference(withPath: "task")
     
     var task: Task?
     override func viewDidLoad() {
@@ -21,21 +24,17 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func saveTask(_ sender: UIButton) {
         
+        // 1
+        guard let text = textField.text else { return }
         
-         // 1
-         guard let task = task,
-            let text = textField.text else { return }
-         
-         // 2
-         let newTask = Task(title: "\(text)")
-        // 3
-         let groceryItemRef = self.ref.child(text.lowercased())
-         
-         // 4
-//         groceryItemRef.setValue(newTask.toAnyObject())
-         
-         
         
-    }
-    
+        let newTask = Task(name: text,
+                                      addedByUser: self.user.email,
+                                      completed: false)
+        
+        let taskRef = self.ref.child(text.lowercased())
+        
+        taskRef.setValue(newTask.toAnyObject())
+    }    
 }
+

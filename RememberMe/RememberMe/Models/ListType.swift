@@ -12,6 +12,9 @@ import UIKit
 struct ListType {
     var title: String
     var color: UIColor?
+    var tasks: [Task] = []
+    
+  
 }
 
 let familyList: ListType = ListType(title: "Family", color: UIColor(named: "FamilyColor"))

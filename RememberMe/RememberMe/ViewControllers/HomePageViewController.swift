@@ -7,55 +7,40 @@
 //
 
 import UIKit
-import CoreData
 import Firebase
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     //MARK: - Properties
     
     let taskController = TaskController()
-    
-    
-    lazy var fetchedResultsController: NSFetchedResultsController<Task> = {
-        
-        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "taskType", ascending: true),
-                                        NSSortDescriptor(key: "timestamp", ascending: true)]
-        
-        let context = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "mood", cacheName: nil)
-        frc.delegate = self
-        
-        try! frc.performFetch()
-        return frc
-        
-    }()
+    var tasks: [Task] = []
+    var cellColors = myColors
+    var cellColors2 = myColors2
     
     // For List Type Table View cells
     var myColorsArray = myColors
-
+    
     //MARK: - IBOutlet
     
     @IBOutlet weak var todayTableView: UITableView!
     @IBOutlet weak var taskTypeTableView: UITableView!
     @IBOutlet weak var plusButton: UIButton!
     
-    //MARK: - TableViewClassRefs
-    /// Classes are created at bottom of .swift file
-    let todayTableViewRef = TodayTaskTableView()
-    let taskTypeTableViewRef = TaskTypeTableView()
-    
     //MARK: - View Lifecycle
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPlusButton()
         
         self.taskTypeTableView.separatorColor = UIColor.clear
-        self.todayTableView.delegate = todayTableViewRef
-        self.todayTableView.dataSource = todayTableViewRef
-        self.taskTypeTableView.delegate = taskTypeTableViewRef
-        self.taskTypeTableView.dataSource = taskTypeTableViewRef
+        self.todayTableView.delegate = self
+        self.todayTableView.dataSource = self
+        self.taskTypeTableView.delegate = self
+        self.taskTypeTableView.dataSource = self
         
         let interaction = UIContextMenuInteraction(delegate: self)
         plusButton.addInteraction(interaction)
@@ -81,118 +66,89 @@ class HomePageViewController: UIViewController {
         plusButton.layer.masksToBounds = false
     }
     
-    
-    // MARK: - NAVIGATION is handled with the contextul menu attached to the plus button
-    
-}
-
-class TodayTaskTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
-    
-    var homePageRef: HomePageViewController?
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        homePageRef?.fetchedResultsController.sections![section].numberOfObjects ?? 0
-         
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! TodaysTaskTableViewCell
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        65
-    }
-}
-
-class TaskTypeTableView: NSObject, UITableViewDelegate, UITableViewDataSource {
-    let cellSpacingHeight: CGFloat = 0
-    var cellColors = myColors
-    var cellColors2 = myColors2
+    //MARK: - TableView Delegate/DataSource
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    
-        cell.contentView.layer.masksToBounds = true
-        let radius = cell.contentView.layer.cornerRadius
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        cellSpacingHeight
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
+        if tableView == taskTypeTableView {
+            cell.contentView.layer.masksToBounds = true
+            let radius = cell.contentView.layer.cornerRadius
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
+            cell.contentView.backgroundColor = UIColor(named: cellColors[indexPath.row % cellColors.count])
+            cell.layer.cornerRadius = 25
+        }
     }
     
-    // # of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        lists.count
+        
+        
+        if tableView == todayTableView {
+            
+            return tasks.count
+            
+        } else if tableView == taskTypeTableView {
+            
+            return lists.count
+        }
+        
+        return 1
         
     }
-    // Cell For Row At
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as! TaskTypeTableViewCell
-        cell.textLabel?.text = lists[indexPath.row].title
-        cell.contentView.backgroundColor = UIColor(named: cellColors[indexPath.row % cellColors.count])
-        cell.layer.cornerRadius = 25
-
-        return cell
-    }
-}
-//MARK: - FRC Delegate
-extension HomePageViewController: NSFetchedResultsControllerDelegate {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        todayTableView.beginUpdates()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        todayTableView.endUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange sectionInfo: NSFetchedResultsSectionInfo,
-                    atSectionIndex sectionIndex: Int,
-                    for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            todayTableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
-        case .delete:
-            todayTableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
-        default:
-            break
+        if tableView == todayTableView
+            
+        {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomOne") as? TodaysTaskTableViewCell else
+            {
+                
+                return UITableViewCell()
+                
+            }
+            
+            cell.textLabel?.text = lists[indexPath.row].title
+            
+            return cell
+            
         }
-    }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange anObject: Any,
-                    at indexPath: IndexPath?,
-                    for type: NSFetchedResultsChangeType,
-                    newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            guard let newIndexPath = newIndexPath else { return }
-            todayTableView.insertRows(at: [newIndexPath], with: .automatic)
-        case .update:
-            guard let indexPath = indexPath else { return }
-            todayTableView.reloadRows(at: [indexPath], with: .automatic)
-        case .move:
-            guard let oldIndexPath = indexPath,
-                let newIndexPath = newIndexPath else { return }
-            todayTableView.deleteRows(at: [oldIndexPath], with: .automatic)
-            todayTableView.insertRows(at: [newIndexPath], with: .automatic)
-        case .delete:
-            guard let indexPath = indexPath else { return }
-            todayTableView.deleteRows(at: [indexPath], with: .automatic)
-        @unknown default:
-            break
+            
+        else if tableView == taskTypeTableView
+            
+        {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTwo") as? TaskTypeTableViewCell else
+                
+            {
+                
+                return UITableViewCell()}
+            return cell
         }
+        
+        return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let worthlessCellSpacingHeight: CGFloat = 0
+        if tableView == taskTypeTableView {
+            
+            let cellSpacingHeight: CGFloat = 5
+            
+            return cellSpacingHeight
+        }
+        return worthlessCellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let worthlessView = UIView()
+        
+        if tableView == taskTypeTableView {
+            let headerView = UIView()
+            headerView.backgroundColor = UIColor.clear
+            return headerView
+        }
+        return worthlessView
+        
+    }
 }
 
