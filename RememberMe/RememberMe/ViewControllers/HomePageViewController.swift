@@ -28,29 +28,27 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var plusButton: UIButton!
     
     //MARK: - View Lifecycle
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPlusButton()
         
-        self.taskTypeTableView.separatorColor = UIColor.clear
-        self.todayTableView.delegate = self
-        self.todayTableView.dataSource = self
-        self.taskTypeTableView.delegate = self
-        self.taskTypeTableView.dataSource = self
-        
+        taskTypeTableView.separatorColor = UIColor.clear
+        todayTableView.delegate = self
+        todayTableView.dataSource = self
+        taskTypeTableView.delegate = self
+        taskTypeTableView.dataSource = self
+        todayTableView.reloadData()
+        taskTypeTableView.reloadData()
         let interaction = UIContextMenuInteraction(delegate: self)
         plusButton.addInteraction(interaction)
     }
-    
-    //MARK: - IBAction
-    @IBAction func plusButtonContextMenu(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        todayTableView.reloadData()
+        taskTypeTableView.reloadData()
     }
-    
-    
+ 
     //MARK: - Private Methods
     
     private func setupPlusButton() {
@@ -66,7 +64,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         plusButton.layer.masksToBounds = false
     }
     
-    //MARK: - TableView Delegate/DataSource
+//MARK: - TableView Delegate/DataSource
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if tableView == taskTypeTableView {
@@ -80,48 +78,37 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        var number = 0
+        
         
         if tableView == todayTableView {
             
-            return tasks.count
+            number = tasks.count
+            
+        
             
         } else if tableView == taskTypeTableView {
             
-            return lists.count
+            number = lists.count
         }
         
-        return 1
+        return number
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if tableView == todayTableView
+        if tableView == todayTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TodayTaskCell") as? TodaysTaskTableViewCell
+            let task = tasks[indexPath.row] 
+            cell?.taskLabel.text = task.name
+  
+            return cell!
             
-        {
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomOne") as? TodaysTaskTableViewCell else
-            {
-                
-                return UITableViewCell()
-                
-            }
-            
-            cell.textLabel?.text = lists[indexPath.row].title
-            
-            return cell
-            
-        }
-            
-        else if tableView == taskTypeTableView
-            
-        {
-            
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTwo") as? TaskTypeTableViewCell else
-                
-            {
-                
+        } else if tableView == taskTypeTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? TaskTypeTableViewCell else {
                 return UITableViewCell()}
+            cell.textLabel?.text = lists[indexPath.row].title
             return cell
         }
         
@@ -150,5 +137,15 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         return worthlessView
         
     }
+}
+
+extension HomePageViewController: TaskWasAdded {
+    func taskWasAdded(_ task: Task) {
+        tasks.append(task)
+        self.dismiss(animated: true, completion: nil)
+        todayTableView.reloadData()
+    }
+    
+    
 }
 

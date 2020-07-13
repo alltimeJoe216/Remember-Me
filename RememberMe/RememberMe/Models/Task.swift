@@ -11,12 +11,19 @@ import Firebase
 
 struct Task {
     
-    let name: String
+    var name: String
     let key: String
     let ref: DatabaseReference?
-    var completed: Bool
-    let addedByUser: String
-    var date: Date
+    var completed: Bool = false
+    var addedByUser: String = ""
+    var date: Date = Date()
+    
+    @discardableResult init?(name: String, key: String = "") {
+        self.name = name
+        self.key = key
+        self.ref = nil
+        
+    }
     
     init(name: String, addedByUser: String, completed: Bool = false, key: String = "", date: Date = Date()) {
         self.ref = nil
@@ -53,6 +60,8 @@ struct Task {
             "completed": completed
         ]
     }
+    
+    
     
     
 }

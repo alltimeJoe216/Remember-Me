@@ -9,6 +9,10 @@
 import UIKit
 import Firebase
 
+protocol TaskWasAdded {
+    func taskWasAdded(_ task: Task)
+}
+
 class AddTaskViewController: UIViewController {
     
     var user: User!
@@ -23,18 +27,12 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func saveTask(_ sender: UIButton) {
-        
-        // 1
         guard let text = textField.text else { return }
-        
-        
-        let newTask = Task(name: text,
-                                      addedByUser: self.user.email,
-                                      completed: false)
-        
-        let taskRef = self.ref.child(text.lowercased())
-        
-        taskRef.setValue(newTask.toAnyObject())
-    }    
+        let newTask = Task(name: text)
+        delegate?.taskWasAdded(newTask!)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    var delegate: TaskWasAdded?
 }
 

@@ -21,55 +21,22 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodayTaskCell" rowHeight="64" id="sRW-ns-67V" customClass="TodaysTaskTableViewCell" customModule="RememberMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodayTaskCell" textLabel="oC0-Ea-8W7" rowHeight="64" style="IBUITableViewCellStyleDefault" id="sRW-ns-67V" customClass="TodaysTaskTableViewCell" customModule="RememberMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sRW-ns-67V" id="pnc-4O-ntg">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3b-Fg-Uqc">
-                                                    <rect key="frame" x="52" y="10" width="47.5" height="44"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oC0-Ea-8W7">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mt-GU-J7H">
-                                                    <rect key="frame" x="0.0" y="10" width="44" height="44"/>
-                                                    <color key="backgroundColor" name="FamilyColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="pPg-Wt-rw5"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <state key="normal" image="circle" catalog="system"/>
-                                                </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9P-zy-8Wg">
-                                                    <rect key="frame" x="334" y="21" width="20" height="22"/>
-                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="tintColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="Zuq-Fr-Ecf"/>
-                                                        <constraint firstAttribute="height" constant="20" id="aay-09-c7G"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="F3b-Fg-Uqc" firstAttribute="leading" secondItem="8Mt-GU-J7H" secondAttribute="trailing" constant="8" id="7ju-1b-RbY"/>
-                                                <constraint firstItem="F3b-Fg-Uqc" firstAttribute="top" secondItem="pnc-4O-ntg" secondAttribute="top" constant="10" id="CKP-G9-hM8"/>
-                                                <constraint firstItem="j9P-zy-8Wg" firstAttribute="top" secondItem="pnc-4O-ntg" secondAttribute="topMargin" constant="10" id="HVu-BV-WaL"/>
-                                                <constraint firstItem="8Mt-GU-J7H" firstAttribute="leading" secondItem="pnc-4O-ntg" secondAttribute="leading" id="Hpf-9n-KGU"/>
-                                                <constraint firstAttribute="bottom" secondItem="8Mt-GU-J7H" secondAttribute="bottom" constant="10" id="OtA-J6-sdI"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="j9P-zy-8Wg" secondAttribute="bottom" constant="10" id="QcG-cC-Rfs"/>
-                                                <constraint firstItem="j9P-zy-8Wg" firstAttribute="trailing" secondItem="pnc-4O-ntg" secondAttribute="trailingMargin" id="eRE-wO-Wmf"/>
-                                                <constraint firstItem="8Mt-GU-J7H" firstAttribute="top" secondItem="pnc-4O-ntg" secondAttribute="top" constant="10" id="hHg-Tc-fIg"/>
-                                                <constraint firstAttribute="bottom" secondItem="F3b-Fg-Uqc" secondAttribute="bottom" constant="10" id="kw4-Lo-jYs"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="taskCompletedOrNotButton" destination="8Mt-GU-J7H" id="32m-u2-gd1"/>
-                                            <outlet property="taskTypeColorView" destination="j9P-zy-8Wg" id="8Jw-UM-Om1"/>
-                                            <outlet property="textLabel" destination="F3b-Fg-Uqc" id="xw9-yR-Bz0"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -349,9 +316,6 @@
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <namedColor name="FamilyColor">
-            <color red="0.95599997043609619" green="0.80400002002716064" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="InboxColor">
             <color red="0.72200000286102295" green="0.7369999885559082" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
