@@ -73,10 +73,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O32-9I-u6u">
-                                <rect key="frame" x="17" y="518" width="380" height="309"/>
-                                <color key="backgroundColor" name="MyDarkPurple"/>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="i22-bn-ocw">
                                 <rect key="frame" x="17" y="518" width="380" height="330"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,18 +131,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pms-rD-IfA" secondAttribute="bottom" constant="78" id="0Ly-n9-vgq"/>
-                            <constraint firstItem="O32-9I-u6u" firstAttribute="leading" secondItem="Yt6-ea-1H0" secondAttribute="leading" constant="17" id="5Qm-gB-ZKE"/>
                             <constraint firstItem="Yt6-ea-1H0" firstAttribute="bottom" secondItem="i22-bn-ocw" secondAttribute="bottom" constant="14" id="AmY-WN-MLT"/>
                             <constraint firstItem="i22-bn-ocw" firstAttribute="centerX" secondItem="lhR-ZP-Uwy" secondAttribute="centerX" id="DzA-mt-MYr"/>
                             <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="EsD-NZ-FrC" secondAttribute="trailing" constant="20" id="QA0-87-gjB"/>
                             <constraint firstItem="i22-bn-ocw" firstAttribute="top" secondItem="KDs-gV-H2I" secondAttribute="bottom" constant="8" id="SZf-Gz-1dT"/>
-                            <constraint firstItem="Yt6-ea-1H0" firstAttribute="bottom" secondItem="O32-9I-u6u" secondAttribute="bottom" constant="35" id="Sy4-cx-RLj"/>
-                            <constraint firstItem="O32-9I-u6u" firstAttribute="top" secondItem="KDs-gV-H2I" secondAttribute="bottom" constant="8" id="TkX-y5-VAQ"/>
                             <constraint firstItem="EsD-NZ-FrC" firstAttribute="top" secondItem="Yt6-ea-1H0" secondAttribute="top" constant="5" id="VXH-D6-LQP"/>
                             <constraint firstItem="i22-bn-ocw" firstAttribute="top" secondItem="EsD-NZ-FrC" secondAttribute="bottom" constant="30" id="bG0-6w-KK3"/>
                             <constraint firstItem="EsD-NZ-FrC" firstAttribute="centerX" secondItem="lhR-ZP-Uwy" secondAttribute="centerX" id="h38-UW-rJh"/>
                             <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="pms-rD-IfA" secondAttribute="trailing" constant="42" id="ho0-lm-EDA"/>
-                            <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="O32-9I-u6u" secondAttribute="trailing" constant="17" id="kMv-Qr-3i7"/>
                             <constraint firstItem="Yt6-ea-1H0" firstAttribute="trailing" secondItem="KDs-gV-H2I" secondAttribute="trailing" constant="20" id="mUz-hv-o9Z"/>
                             <constraint firstItem="KDs-gV-H2I" firstAttribute="leading" secondItem="Yt6-ea-1H0" secondAttribute="leading" constant="20" id="oWt-zM-itq"/>
                             <constraint firstItem="EsD-NZ-FrC" firstAttribute="leading" secondItem="Yt6-ea-1H0" secondAttribute="leading" constant="20" id="r58-ZR-7oG"/>
@@ -156,7 +148,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Today" id="gLx-Iz-u9o"/>
                     <connections>
-                        <outlet property="behindTableViewViewLol" destination="O32-9I-u6u" id="RC6-P0-XFP"/>
                         <outlet property="plusButton" destination="pms-rD-IfA" id="bnJ-BS-EPz"/>
                         <outlet property="taskTypeTableView" destination="i22-bn-ocw" id="cx4-7h-1qL"/>
                         <outlet property="todayTableView" destination="EsD-NZ-FrC" id="bM4-yf-e9g"/>
@@ -299,10 +290,10 @@
             </objects>
             <point key="canvasLocation" x="1335" y="-476"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Task View Controller-->
         <scene sceneID="2Uz-n9-iza">
             <objects>
-                <viewController storyboardIdentifier="EditTaskViewController" id="Mbe-YO-HUS" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTaskViewController" id="Mbe-YO-HUS" customClass="EditTaskViewController" customModule="RememberMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f7M-fs-IfZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,16 +305,41 @@
             </objects>
             <point key="canvasLocation" x="2274" y="-1189"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Task View Controller-->
         <scene sceneID="C7e-aX-57a">
             <objects>
-                <viewController storyboardIdentifier="AddTaskViewController" id="DvF-Hv-ofP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTaskViewController" id="DvF-Hv-ofP" customClass="AddTaskViewController" customModule="RememberMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fNk-xQ-qjn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nna-lu-suJ">
+                                <rect key="frame" x="184" y="344" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="saveTask:" destination="DvF-Hv-ofP" eventType="touchUpInside" id="2v9-Ax-B7I"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2b-ep-Mpe">
+                                <rect key="frame" x="159" y="105" width="97" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Nna-lu-suJ" firstAttribute="leading" secondItem="NxU-4d-72r" secondAttribute="leading" constant="184" id="H9C-cZ-gOf"/>
+                            <constraint firstItem="NxU-4d-72r" firstAttribute="trailing" secondItem="Nna-lu-suJ" secondAttribute="trailing" constant="184" id="MJ8-sr-xZp"/>
+                            <constraint firstItem="NxU-4d-72r" firstAttribute="trailing" secondItem="h2b-ep-Mpe" secondAttribute="trailing" constant="158" id="QJ4-Mt-o3K"/>
+                            <constraint firstItem="h2b-ep-Mpe" firstAttribute="leading" secondItem="NxU-4d-72r" secondAttribute="leading" constant="159" id="Xbv-Mv-Orw"/>
+                            <constraint firstItem="Nna-lu-suJ" firstAttribute="top" secondItem="h2b-ep-Mpe" secondAttribute="bottom" constant="205" id="h0V-ae-Odp"/>
+                            <constraint firstItem="h2b-ep-Mpe" firstAttribute="top" secondItem="NxU-4d-72r" secondAttribute="top" constant="61" id="mA3-Zm-RnS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NxU-4d-72r"/>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="h2b-ep-Mpe" id="Bbh-OW-shs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYX-wb-26Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -338,9 +354,6 @@
         </namedColor>
         <namedColor name="InboxColor">
             <color red="0.72200000286102295" green="0.7369999885559082" blue="0.79199999570846558" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="MyDarkPurple">
-            <color red="0.36800000071525574" green="0.3970000147819519" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

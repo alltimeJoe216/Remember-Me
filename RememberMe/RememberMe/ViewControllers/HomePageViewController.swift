@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class HomePageViewController: UIViewController {
     
     //MARK: - Properties
     
     let taskController = TaskController()
+    
     
     lazy var fetchedResultsController: NSFetchedResultsController<Task> = {
         
@@ -38,7 +40,6 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var todayTableView: UITableView!
     @IBOutlet weak var taskTypeTableView: UITableView!
     @IBOutlet weak var plusButton: UIButton!
-    @IBOutlet weak var behindTableViewViewLol: UIView!
     
     //MARK: - TableViewClassRefs
     /// Classes are created at bottom of .swift file
@@ -49,7 +50,6 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPlusButton()
-        behindTableViewViewLol.layer.cornerRadius = 20
         
         self.taskTypeTableView.separatorColor = UIColor.clear
         self.todayTableView.delegate = todayTableViewRef

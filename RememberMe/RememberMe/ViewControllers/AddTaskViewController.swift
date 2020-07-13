@@ -7,24 +7,35 @@
 //
 
 import UIKit
+import Firebase
 
 class AddTaskViewController: UIViewController {
-
+    
+    @IBOutlet weak var textField: UITextField!
+    let ref = Database.database().reference(withPath: "task")
+    
+    var task: Task?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveTask(_ sender: UIButton) {
+        
+        
+         // 1
+         guard let task = task,
+            let text = textField.text else { return }
+         
+         // 2
+         let newTask = Task(title: "\(text)")
+        // 3
+         let groceryItemRef = self.ref.child(text.lowercased())
+         
+         // 4
+//         groceryItemRef.setValue(newTask.toAnyObject())
+         
+         
+        
     }
-    */
-
+    
 }

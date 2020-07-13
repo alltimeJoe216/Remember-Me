@@ -7,11 +7,16 @@
 //
 
 import Foundation
+import Firebase
 
-struct TaskRepresentation: Codable {
+struct TaskRepresentation {
     let title: String
     let identifier: String
+    let ref: DatabaseReference?
     let taskType: String
     let timeStamp: Date
-    let complete: Bool
+    var complete: Bool
+    
+    
+    
 }
