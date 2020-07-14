@@ -43,8 +43,8 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         let interaction = UIContextMenuInteraction(delegate: self)
         plusButton.addInteraction(interaction)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         todayTableView.reloadData()
         taskTypeTableView.reloadData()
     }
@@ -72,7 +72,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             let radius = cell.contentView.layer.cornerRadius
             cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
             cell.contentView.backgroundColor = UIColor(named: cellColors[indexPath.row % cellColors.count])
-            cell.layer.cornerRadius = 25
+            cell.layer.cornerRadius = 10
         }
     }
     

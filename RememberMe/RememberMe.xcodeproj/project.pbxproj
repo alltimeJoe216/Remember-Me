@@ -19,6 +19,7 @@
 		8E218B4624BB620200D7B072 /* PlusButtonContextualMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E218B4524BB620200D7B072 /* PlusButtonContextualMenu.swift */; };
 		8E9E47B624BC0EAB00A21763 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E9E47B524BC0EAB00A21763 /* GoogleService-Info.plist */; };
 		8E9E47CE24BC223300A21763 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9E47CD24BC223300A21763 /* User.swift */; };
+		8EB20F0724BD4EE100F56113 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB20F0624BD4EE100F56113 /* Auth.storyboard */; };
 		8EC3D6B624BB79F90054996A /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC3D6B524BB79F90054996A /* TaskController.swift */; };
 		8ED0249324BA682D00266EB2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0249124BA682D00266EB2 /* HomePageViewController.swift */; };
 		8ED0249624BA68E900266EB2 /* TodaysTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED0249524BA68E900266EB2 /* TodaysTaskTableViewCell.swift */; };
@@ -29,6 +30,7 @@
 		8ED024A124BA957E00266EB2 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED024A024BA957E00266EB2 /* Colors.swift */; };
 		8ED024A524BA9BB600266EB2 /* TaskTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED024A424BA9BB600266EB2 /* TaskTypeTableViewCell.swift */; };
 		8ED024A724BAA2A000266EB2 /* ListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED024A624BAA2A000266EB2 /* ListType.swift */; };
+		8EE5F92B24BD6E3100E730C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5F92A24BD6E3100E730C4 /* LoginViewController.swift */; };
 		C11FD2C12725EFD59272CA1A /* Pods_RememberMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A223B4C441741566258D78 /* Pods_RememberMeTests.framework */; };
 		E523CC04B275C967B1738BAD /* Pods_RememberMe_RememberMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1BA06C11E723EDD786CED8 /* Pods_RememberMe_RememberMeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		8E9E47BC24BC1F6F00A21763 /* FirebaseInstallations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstallations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9E47BD24BC1F6F00A21763 /* FirebaseStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9E47CD24BC223300A21763 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8EB20F0624BD4EE100F56113 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		8EB20F0824BD4F5900F56113 /* Retrophilia.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Retrophilia.ttf; sourceTree = "<group>"; };
 		8EC3D6B524BB79F90054996A /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		8ED0249124BA682D00266EB2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		8ED0249524BA68E900266EB2 /* TodaysTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 		8ED024A024BA957E00266EB2 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8ED024A424BA9BB600266EB2 /* TaskTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeTableViewCell.swift; sourceTree = "<group>"; };
 		8ED024A624BAA2A000266EB2 /* ListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListType.swift; sourceTree = "<group>"; };
+		8EE5F92A24BD6E3100E730C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = RememberMe/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		D636CCFA8A68DB6C621D195D /* Pods-RememberMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMe.release.xcconfig"; path = "Target Support Files/Pods-RememberMe/Pods-RememberMe.release.xcconfig"; sourceTree = "<group>"; };
 		D652EDC3252FD9A4722CABA5 /* Pods-RememberMeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RememberMeTests.release.xcconfig"; path = "Target Support Files/Pods-RememberMeTests/Pods-RememberMeTests.release.xcconfig"; sourceTree = "<group>"; };
 		F27D28E9BB6BFA5318A03106 /* Pods_RememberMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RememberMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,9 +154,11 @@
 		8E00494B24BA326400525A3E /* RememberMe */ = {
 			isa = PBXGroup;
 			children = (
+				8EB20F0824BD4F5900F56113 /* Retrophilia.ttf */,
 				8E9E47B524BC0EAB00A21763 /* GoogleService-Info.plist */,
 				8E00495D24BA326400525A3E /* Info.plist */,
 				8E00495224BA326400525A3E /* Main.storyboard */,
+				8EB20F0624BD4EE100F56113 /* Auth.storyboard */,
 				8ED0249F24BA956100266EB2 /* Helpers */,
 				8ED0248B24BA678300266EB2 /* Resources */,
 				8ED0248C24BA679700266EB2 /* Models */,
@@ -221,6 +228,7 @@
 		8ED0248F24BA67A900266EB2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8EE5F92924BD6D6700E730C4 /* OnboardingVCs */,
 				8ED0249124BA682D00266EB2 /* HomePageViewController.swift */,
 				8ED0249D24BA864C00266EB2 /* EditTaskViewController.swift */,
 				8ED0249724BA788600266EB2 /* ListDetailViewController.swift */,
@@ -237,6 +245,14 @@
 				8E218B4524BB620200D7B072 /* PlusButtonContextualMenu.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8EE5F92924BD6D6700E730C4 /* OnboardingVCs */ = {
+			isa = PBXGroup;
+			children = (
+				8EE5F92A24BD6E3100E730C4 /* LoginViewController.swift */,
+			);
+			path = OnboardingVCs;
 			sourceTree = "<group>";
 		};
 		D7D1840B5EC8936C2FDB4784 /* Frameworks */ = {
@@ -380,6 +396,7 @@
 			files = (
 				8E00495C24BA326400525A3E /* LaunchScreen.storyboard in Resources */,
 				8E9E47B624BC0EAB00A21763 /* GoogleService-Info.plist in Resources */,
+				8EB20F0724BD4EE100F56113 /* Auth.storyboard in Resources */,
 				8E00495924BA326400525A3E /* Assets.xcassets in Resources */,
 				8E00495424BA326400525A3E /* Main.storyboard in Resources */,
 			);
@@ -521,6 +538,7 @@
 				8ED0249624BA68E900266EB2 /* TodaysTaskTableViewCell.swift in Sources */,
 				8E00494F24BA326400525A3E /* SceneDelegate.swift in Sources */,
 				8ED0249E24BA864C00266EB2 /* EditTaskViewController.swift in Sources */,
+				8EE5F92B24BD6E3100E730C4 /* LoginViewController.swift in Sources */,
 				8ED0249324BA682D00266EB2 /* HomePageViewController.swift in Sources */,
 				8E00498524BA4CBD00525A3E /* Task.swift in Sources */,
 				8ED024A724BAA2A000266EB2 /* ListType.swift in Sources */,
